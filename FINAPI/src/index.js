@@ -47,7 +47,7 @@ app.post("/account", (req, res) => {
     return res.status(400).json({ error: "Customer already exists!" });
   }
 
-  customers.push({ cpf, name, id: uuidv4, statement: [] });
+  customers.push({ cpf, name, id: uuidv4(), statement: [] });
 
   return res.status(201).send();
 });
