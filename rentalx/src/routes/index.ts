@@ -7,9 +7,6 @@ import { usersRoutes } from "./user.routes";
 
 const router = Router();
 
-console.log("teste");
-console.log("teste");
-
 router.use("/categories", categoriesRoutes);
 router.use("/specification", specificationsRoutes);
 router.use("/users", usersRoutes);
