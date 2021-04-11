@@ -1,4 +1,4 @@
-import { Category } from "../entities/category";
+import { Category } from "@modules/cars/infra/typeorm/entities/Category";
 
 // DTO => Data transfer object
 interface ICreateCategoryDTO {
@@ -6,7 +6,7 @@ interface ICreateCategoryDTO {
   description: string;
 }
 
-interface ICategoryRepositoty {
+interface ICategoryRepository {
   findByName(name: string): Promise<Category>;
 
   list(): Promise<Category[]>;
@@ -14,4 +14,4 @@ interface ICategoryRepositoty {
   create({ name, description }: ICreateCategoryDTO): Promise<void>;
 }
 
-export { ICategoryRepositoty, ICreateCategoryDTO };
+export { ICategoryRepository, ICreateCategoryDTO };
