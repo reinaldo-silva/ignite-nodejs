@@ -50,9 +50,9 @@ describe("Create car", () => {
     }).rejects.toBeInstanceOf(AppError);
   });
 
-  it("should be able to create a car with avaliable true by default", async () => {
+  it("should be able to create a car with available true by default", async () => {
     const car = await createCarUseCase.execute({
-      name: "Car Avaliable",
+      name: "Car Available",
       description: "Description car",
       daily_rate: 100,
       license_plate: "ABCD-1234",
@@ -61,6 +61,6 @@ describe("Create car", () => {
       category_id: "category",
     });
 
-    expect(car.avaliable).toBe(true);
+    expect(car.available).toBe(true);
   });
 });
