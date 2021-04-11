@@ -3,10 +3,14 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
+  JoinTable,
+  ManyToMany,
   ManyToOne,
   PrimaryColumn,
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
+
+import { Specification } from "@modules/cars/infra/typeorm/entities/Specification";
 
 import { Category } from "./Category";
 
@@ -42,6 +46,14 @@ class Car {
 
   @Column()
   category_id: string;
+
+  @ManyToMany(() => Specification)
+  @JoinTable({
+    name: "specification_cars",
+    joinColumns: [{ name: "car_id" }],
+    inverseJoinColumns: [{ name: "specification_id" }],
+  })
+  specification: Specification[];
 
   @CreateDateColumn()
   created_at: Date;
