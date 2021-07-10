@@ -10,9 +10,8 @@ import {
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
-import { Specification } from "@modules/cars/infra/typeorm/entities/Specification";
-
 import { Category } from "./Category";
+import { Specification } from "./Specification";
 
 @Entity("cars")
 class Car {

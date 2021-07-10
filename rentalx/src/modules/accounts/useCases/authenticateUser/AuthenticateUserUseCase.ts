@@ -26,7 +26,7 @@ interface IResponse {
 class AuthenticateUserUseCase {
   constructor(
     @inject("UsersRepository")
-    private userRepository: IUsersRepository,
+    private usersRepository: IUsersRepository,
     @inject("UsersTokensRepository")
     private usersTokensRepository: IUsersTokensRepository,
     @inject("DayjsDateProvider")
@@ -34,8 +34,7 @@ class AuthenticateUserUseCase {
   ) {}
 
   async execute({ email, password }: IRequest): Promise<IResponse> {
-    const user = await this.userRepository.findByEmail(email);
-
+    const user = await this.usersRepository.findByEmail(email);
     const {
       expires_in_token,
       secret_refresh_token,

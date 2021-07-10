@@ -26,8 +26,8 @@ class DayjsDateProvider implements IDateProvider {
 
     return dayjs(end_date_utc).diff(start_date_utc, "days");
   }
-  addDays(day: number): Date {
-    return dayjs().add(day, "days").toDate();
+  addDays(days: number): Date {
+    return dayjs().add(days, "days").toDate();
   }
 }
 
