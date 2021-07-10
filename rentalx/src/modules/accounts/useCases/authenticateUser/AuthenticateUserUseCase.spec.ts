@@ -21,8 +21,11 @@ describe("Authenticate User", () => {
   it("should be able to authenticate a user", async () => {
     const user: ICreateUserDTO = {
       driver_license: "2156482",
+
       email: "user@test.com",
+
       password: "123456",
+
       name: "User Test",
     };
 
@@ -30,6 +33,7 @@ describe("Authenticate User", () => {
 
     const result = await authenticateUserUseCase.execute({
       email: user.email,
+
       password: user.password,
     });
 
@@ -40,6 +44,7 @@ describe("Authenticate User", () => {
     await expect(
       authenticateUserUseCase.execute({
         email: "false@email.com",
+
         password: "123456",
       })
     ).rejects.toEqual(new AppError("Email or password incorrect!"));
@@ -48,8 +53,11 @@ describe("Authenticate User", () => {
   it("should not be able to authenticate with incorrect password", async () => {
     const user: ICreateUserDTO = {
       driver_license: "123456",
+
       email: "user@user.com",
+
       password: "1236",
+
       name: "User Test Error",
     };
 
@@ -58,6 +66,7 @@ describe("Authenticate User", () => {
     await expect(
       authenticateUserUseCase.execute({
         email: user.email,
+
         password: "incorrectPassword",
       })
     ).rejects.toEqual(new AppError("Email or password incorrect!"));
